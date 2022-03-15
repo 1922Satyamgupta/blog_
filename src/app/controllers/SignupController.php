@@ -10,7 +10,8 @@ class SignupController extends Controller{
 
     public function registerAction(){
         $user = new Users();
-
+    // print_r($this->request->getPost());
+    // die();
         $user->assign(
             $this->request->getPost(),
             [

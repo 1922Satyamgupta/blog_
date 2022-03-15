@@ -10,7 +10,6 @@ use Phalcon\Mvc\Application;
 use Phalcon\Url;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 use Phalcon\Config;
-
 $config = new Config([]);
 
 // Define some absolute path constants to aid in locating resources
@@ -53,29 +52,29 @@ $application = new Application($container);
 
 
 
-// $container->set(
-//     'db',
-//     function () {
-//         return new Mysql(
-//             [
-//                 'host'     => 'localhost',
-//                 'username' => 'root',
-//                 'password' => '',
-//                 'dbname'   => 'phalt',
-//                 ]
-//             );
-//         }
-// );
-
 $container->set(
-    'mongo',
+    'db',
     function () {
-        $mongo = new MongoClient();
-
-        return $mongo->selectDB('phalt');
-    },
-    true
+        return new Mysql(
+            [
+                'host'     => 'mysql-server',
+                'username' => 'root',
+                'password' => 'secret',
+                'dbname'   => 'tutorial',
+                ]
+            );
+        }
 );
+
+// $container->set(
+//     'mongo',
+//     function () {
+//         $mongo = new MongoClient();
+
+//         return $mongo->selectDB('phalt');
+//     },
+//     true
+// );
 
 try {
     // Handle the request
@@ -87,3 +86,4 @@ try {
 } catch (\Exception $e) {
     echo 'Exception: ', $e->getMessage();
 }
+
