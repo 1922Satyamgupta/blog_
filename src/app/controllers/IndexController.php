@@ -10,6 +10,7 @@ class IndexController extends Controller
     public function indexAction()
     {
       $this->view->users = Users::find();
+    
     }
     public function editAction($userid) {
       
@@ -26,7 +27,7 @@ class IndexController extends Controller
       
       
     }
-    public function deleteaction($id) {
+    public function deleteAction($id) {
      $User = new Users();
      $User->id = $id;
      $result = $User->delete();
@@ -57,4 +58,32 @@ class IndexController extends Controller
 
 
   }
+  public function contactsAction() {
+    $this->view->conts = Contacts::find();
+  
+   }
+  public function deletecontactsAction($id) {
+    $Cont = new Contacts();
+    $Cont->id = $id;
+    $results = $Cont->delete();
+    $this->response->redirect('index/contacts');
+ }
+ public function changestatusAction() 
+ { 
+   $id = $this->request->getPost('approved');
+   $this->view->user = Users::findFirstById($id);
+   if($this->view->user->status == 'approved') {
+     $this->view->user->status = 'unapproved';
+   }
+   else {
+    $this->view->user->status = 'approved';
+
+   }
+   $this->view->user->save();
+
+    // $this->response->redirect('index');
+    header("Location: http://localhost:8080/");
+
+ }
+ 
 }

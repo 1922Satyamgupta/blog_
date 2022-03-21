@@ -56,6 +56,18 @@ class AddpostController extends Controller
         $result = $User->delete();
         $this->response->redirect('/addpost/index');
       }
+      public function editblogAction($id) {
+        $all = Posts::findFirstById($id);
+        $request = new Request();
+        // $_SERVER['REQUEST_METHOD'] = 'POST';
+        $all->username = $request->get('username');
+        $all->title= $request->get('title');
+        $all->content= $request->get('content');
+        $all->update();
+        $this->response->redirect('/addpost/index');
+        
+        
+      }
 
 }
     ?>

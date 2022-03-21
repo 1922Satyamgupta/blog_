@@ -116,6 +116,10 @@ h2 { font-size: 2.2rem; }
 .tm-content-box {
 	max-width: 310px;
 	margin: 0 auto;
+	overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 h3 { font-size: 1.65rem; }
@@ -344,7 +348,10 @@ p { line-height: 1.9; }
 		margin-right: 0;
 	}
 	.navbar-toggler:focus { outline: none; }
-	.tm-content-box { margin-bottom: 50px; }
+	.tm-content-box { margin-bottom: 50px; overflow: hidden;
+		display: -webkit-box;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical; }
 	
 	.tm-2-col-left {
 		padding-right: 0;
@@ -429,3 +436,9 @@ p { line-height: 1.9; }
 		margin-right: auto;
 	}
 }
+.truncate {
+	width: 250px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }

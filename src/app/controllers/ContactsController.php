@@ -1,35 +1,15 @@
 <?php
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Db\Adapter\Pdo\MySQL as Connection;
+use Phalcon\Http\Request;
+use Phalcon\Url;
 
-
-class blogController extends Controller
+class ContactController extends Controller
 {
     public function indexAction()
     {
-        $this->view->post = Posts::find();
-        
-        
-}
-   public function blogAction($id) {
-    $this->view->post = Posts::findFirstById($id);
-    $this->view->title = $title;
-    $this->view->content = $content;
-
-   
-
-
-
-   }
-
-   public function aboutAction()
-   {
-
-
-}
-public function contactAction()
-{
-    $user = new Contacts();
+        $user = new Contacts();
         // print_r($this->request->getPost());
         // die();
             $user->assign(
@@ -47,11 +27,17 @@ public function contactAction()
     
             $this->view->success = $success;
     
-            
+            if($success) {
+                $this->view->message = "Register succesfully";
+            } else
+               {
+                $this->view->message = "Not Register succesfully due to following reason: <br>".implode("<br>", $user->getMessages());
+            }
 
       }
      
 
-}
+    }
 
-?>
+     
+    ?>

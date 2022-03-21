@@ -33,7 +33,7 @@ body {
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
-  font-size: 18px; 
+  font-size: 18px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
@@ -49,20 +49,14 @@ body {
   <a href="/index/index" style="color: white;">Dashboard</a>
   <a href="/users/index" style="color: white;">Users</a>
   <a href="/blog/index" style="color: white;">Blogs</a>
-  <a href="/addpost/index" style="color: white;">Add Blog</a>
-
+  <a href="/index/contact" style="color: white;">Contacts</a>
 </div>
 
 <div class="main">
   
 <?php
-
-
-echo $this->tag->linkTo(["signup", "Sign-Up ", 'class' => 'btn btn-primary']);
-echo "<p style='margin-left:40px;'></p>";
-echo $this->tag->linkTo(["login", "Login ", 'class' => 'btn btn-primary']);
-echo"<h2> Users Record </h2>";
-if ($users->count() > 0) {
+echo"<h2> Contact Us </h2>";
+if ($conts->count() > 0) {
     ?>
     <table class="table table-bordered table-hover">
         <thead class="thead-light">
@@ -70,40 +64,34 @@ if ($users->count() > 0) {
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Role</th>
-            <th>Status</th>
+            <th>Subject</th>
+            <th>Message</th>
             <th colspan="2">Action</th>
         </tr>
         </thead>
         <tfoot>
         <tr>
-            <td colspan="6">Total Users: <?php echo $users->count()." (including admin)"; ?></td>
+            <td colspan="6">Total Contacts: <?php echo $conts->count(); ?></td>
         </tr>
         </tfoot>
         <tbody>
-        <?php
-             foreach ($users as $user) { 
-              if($user->role == 'users'){ ?>
+        <?php foreach ($conts as $cont) { ?>
             <tr>
-                <td><?php echo $user->id; ?></td>
-                <td><?php echo $user->username; ?></td>
-                <td><?php echo $user->email; ?></td>
-                <td><?php echo $user->role; ?></td>
-                <td><?php echo $user->status; ?></td>
-                <td><?php echo $this->tag->linkTo(["edits/edits/$user->id", "edit"]);?></td>
-               <td><?php echo $this->tag->linkTo(["index/delete/$user->id", "delete"]);?></td>
+                <td><?php echo $cont->id; ?></td>
+                <td><?php echo $cont->username; ?></td>
+                <td><?php echo $cont->email; ?></td>
+                <td><?php echo $cont->subject; ?></td>
+                <td><?php echo $cont->message; ?></td>
+                <td><?php echo $this->tag->linkTo(["edit/edit/$cont->id", "edit"]);?></td>
+               <td><?php echo $this->tag->linkTo(["index/deletecontacts/$cont->id", "delete"]);?></td>
 
                 
             </tr>
-        <?php } else{ 
-              
-        }?>
-        <?php }?>
+        <?php } ?>
         </tbody>
     </table>
     <?php  echo $this->tag->linkTo(["blog/index", "Go to blog "]);?>
-    <?php }?>
-
+    <?php } ?>
 
 </div>
 </body>

@@ -5,11 +5,13 @@ use Phalcon\Db\Adapter\Pdo\MySQL as Connection;
 use Phalcon\Http\Request;
 use Phalcon\Url;
 
-class EditsController extends Controller
+class EditblogController extends Controller
 {
-    public function editsAction($id)
+    public function editblogAction($id)
     {
      $this->view->userid=$id;
+
+     
     }
-}
-?>
+  }
+    ?>
