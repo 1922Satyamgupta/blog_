@@ -15,8 +15,10 @@ class SignupController extends Controller{
         $user->assign(
             $this->request->getPost(),
             [
-                'name',
-                'email'
+                'username',
+                'email',
+                'password'
+
             ]
         );
 

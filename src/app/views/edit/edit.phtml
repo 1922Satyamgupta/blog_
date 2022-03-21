@@ -1,0 +1,31 @@
+<h2>Edit Fields</h2>
+
+<?php echo $this->tag->form("index/edit/$userid") ?>
+ <?php  echo $userid; ?>
+    <p>
+        <label for="name">Name</label>
+        <?php echo $this->tag->textField("username"); ?>
+    </p>
+
+    <p>
+        <label for="email">E-Mail</label>
+        <?php echo $this->tag->textField("email"); ?>
+    </p>
+    <p>
+        <label for="email">Password</label>
+        <?php echo $this->tag->textField("password"); ?>
+    </p>
+    <p>
+        <label for="email">Role</label>
+        <?php echo $this->tag->textField("role"); ?>
+    </p>
+    <p>
+        <label for="email">Status</label>
+        <?php echo $this->tag->textField("status"); ?>
+    </p>
+
+    <p>
+        <?php echo $this->tag->submitButton("submit"); ?>
+    </p>
+
+</form>

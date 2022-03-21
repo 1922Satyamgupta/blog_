@@ -4,14 +4,18 @@
 
     <p>
         <label for="name">Name</label>
-        <?php echo $this->tag->textField("name"); ?>
+        <?php echo $this->tag->textField("username"); ?>
     </p>
 
     <p>
         <label for="email">E-Mail</label>
         <?php echo $this->tag->textField("email"); ?>
     </p>
-  
+    <p>
+        <label for="email">Password</label>
+        <?php echo $this->tag->textField("password"); ?>
+    </p>
+   
 
     <p>
         <?php echo $this->tag->submitButton("Register"); ?>

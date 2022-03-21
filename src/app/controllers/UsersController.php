@@ -3,11 +3,12 @@
 use Phalcon\Mvc\Controller;
 
 
-class blogController extends Controller
+class UsersController extends Controller
 {
     public function indexAction()
     {
-        
+       
+        $this->view->users = Users::find();
         
         
 }

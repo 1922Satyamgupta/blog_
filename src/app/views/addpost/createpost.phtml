@@ -1,0 +1,28 @@
+<h2>Creating a new blog</h2>
+
+<?php echo $this->tag->form("addpost/created"); ?>
+
+    <p>
+        <label for="name">UserId:</label>
+        <?php echo $this->tag->textField("userid"); ?>
+    </p>
+
+    <p>
+        <label for="email">username:</label>
+        <?php echo $this->tag->textField("username"); ?>
+    </p>
+    <p>
+        <label for="email">Title:</label>
+        <?php echo $this->tag->textField("title"); ?>
+    </p>
+    <p>
+        <label for="email">Content:</label>
+        <?php echo $this->tag->textarea("content"); ?>
+    </p>
+   
+
+    <p>
+        <?php echo $this->tag->submitButton("Add Post"); ?>
+    </p>
+
+</form>

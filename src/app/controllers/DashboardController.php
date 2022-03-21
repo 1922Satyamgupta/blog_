@@ -3,7 +3,7 @@
 use Phalcon\Mvc\Controller;
 
 
-class blogController extends Controller
+class dashboardController extends Controller
 {
     public function indexAction()
     {
